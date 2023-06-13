@@ -1,0 +1,15 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/capstonec23-ps118/[IMAGE-NAME]', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/[PROJECT-ID]/[IMAGE-NAME]']
+  - name: 'gcr.io/capstonec23-ps118/cloud-run'
+    args:
+      - 'deploy'
+      - 'cloud-run'
+      - '--image'
+      - 'gcr.io/capstonec23-ps118/[IMAGE-NAME]'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
