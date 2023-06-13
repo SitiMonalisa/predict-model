@@ -3,7 +3,7 @@ steps:
     args: ['build', '-t', 'gcr.io/capstonec23-ps118/Dockerfile', '.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/capstonec23-ps118]/Dockerfile']
-  - name: 'gcr.io/capstonec23-ps118/cloud-run'
+  - name: 'gcr.io/capstonec23-ps118/predictmodel1'
     args:
       - 'deploy'
       - 'cloud-run'
